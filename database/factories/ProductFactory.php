@@ -20,7 +20,8 @@ class ProductFactory extends Factory
             'name' => $this->faker->word(3, true),
             'description' => $this->faker->sentence(10),
             'price' => $this->faker->randomFloat(2, 50, 1000),
-            'image' => $this->faker->imageUrl(400, 480, 'shoes', true, 'Faker'),
+            'image' => 'https://picsum.photos/400/480?random=' . $this->faker->unique()->numberBetween(1, 1000),
+            // 'image' => $this->faker->imageUrl(400, 480, 'shoes', true, 'Faker'),
         ];
     }
 }

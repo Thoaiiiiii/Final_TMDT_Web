@@ -2,14 +2,12 @@ import '../css/app.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import Home from './Pages/Home';
+
 const App = () => {
-    return (
-    <div className="flex h-screen items-center justify-center bg-blue-500">
-      <h1 className="text-4xl font-bold text-white">
-        Hello Tailwind v4!
-      </h1>
-    </div>
-  )
+  return (
+    <Home />
+  );
 };
 
 ReactDOM.createRoot(document.getElementById('app')).render(

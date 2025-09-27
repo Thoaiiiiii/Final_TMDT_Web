@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Product;
 use App\Models\Category;
+use Faker\Factory as Faker;
 class ProductSeeder extends Seeder
 {
     /**
@@ -13,13 +14,14 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        Product::factory()
-            ->count(50)
-            ->create()
-            ->each(function ($product) {
-                // gan random category
-                $categories = Category::inRandomOrder()->take(rand(1, 3))->pluck('id');
-                $product->categories()->attach($categories);
-            });
+        $faker = Faker::create();
+        for ($i = 0; $i < 20; $i++) {
+            DB:table('products')->insert([
+                'name' => $faker->word(4, true),
+                'price' => $faker->randomFloat(2, 50, 1000),
+                'image' => 'https://loremflickr.com/400/400/shoes?random=' . $i,
+                'category_id' => rand(1, 5),
+            ]);
+        }
     }
 }
