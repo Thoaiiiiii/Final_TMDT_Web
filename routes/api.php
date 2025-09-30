@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\Category;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,10 +20,14 @@ use App\Models\Category;
 //     return $request->user();
 // });
 
-Route::get('/products', function () {
-    return Product::take(8)->get();
-});
+// Route::get('/products', function () {
+//     return Product::take(8)->get();
+// });
 
-Route::get('/categories', function () {
-    return Category::take(3)->get();
-});
+// Route::get('/categories', function () {
+//     return Category::take(3)->get();
+// });
+
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
