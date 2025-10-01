@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Models\Category;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CartController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -36,4 +37,9 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanc
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [UserController::class, 'show']);   // get user info
     Route::put('/user', [UserController::class, 'update']); // update user info
+
+    // cart
+    Route::get('/cart', [CartController::class, 'index']); // get cart items
+    Route::post('/cart', [CartController::class, 'store']); // add items
+    Route::put('/cart/{item_id}', [CartController::class, 'update']); // update item quantity
 });
