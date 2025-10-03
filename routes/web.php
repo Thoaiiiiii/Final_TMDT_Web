@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('final_tmdt_web/index.html', function (){
+    return view('welcome');
+});
