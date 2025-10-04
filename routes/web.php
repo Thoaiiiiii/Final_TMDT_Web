@@ -13,23 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/index', function () {
     return view('welcome');
-});
+})->name('index');
 
-Route::get('final_tmdt_web/public/index.html', function (){
-    return view('welcome');
-});
-
-Route::get('final_tmdt_web/public/login.html', function () {
+Route::get('/login', function () {
     return view('pages.login');
-})->name('login');
+})->name('login.form');
 
+Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
 
-Route::get('final_tmdt_web/public/cart.html', function () {
+Route::get('/cart', function () {
     return view('pages.cart');
-});
+})->name('cart');
 
-Route::get('final_tmdt_web/public/checkout.html', function () {
+Route::get('/checkout', function () {
     return view('pages.checkout');
-});
+})->name('checkout');

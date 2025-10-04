@@ -30,6 +30,7 @@ class AuthController extends Controller
             'user' => $user,
             'token' => $token,
         ]);
+        // return view('pages.index');
     }
 
     public function login(Request $request)
@@ -46,10 +47,12 @@ class AuthController extends Controller
         $user = Auth::user();
         $token = $user->createToken('api-token')->plainTextToken;
 
-        return response()->json([
-            'user' => $user,
-            'token' => $token,
-        ]);
+        // return response()->json([
+        //     'user' => $user,
+        //     'token' => $token,
+        // ]);
+        $request->session()->regenerate();  
+        return redirect()->route('index');
     }
 
     public function logout(Request $request)
