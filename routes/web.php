@@ -17,6 +17,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('final_tmdt_web/index.html', function (){
+Route::get('final_tmdt_web/public/index.html', function (){
     return view('welcome');
+});
+
+Route::get('final_tmdt_web/public/login.html', function () {
+    return view('pages.login');
+})->name('login');
+
+
+Route::get('final_tmdt_web/public/cart.html', function () {
+    return view('pages.cart');
+});
+
+Route::get('final_tmdt_web/public/checkout.html', function () {
+    return view('pages.checkout');
 });
