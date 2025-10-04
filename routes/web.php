@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,7 +21,7 @@ Route::get('/login', function () {
     return view('pages.login');
 })->name('login.form');
 
-Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::get('/cart', function () {
     return view('pages.cart');

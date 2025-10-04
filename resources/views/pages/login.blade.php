@@ -148,10 +148,10 @@
 						<h2>Login to your account</h2>
 						<form action="{{ route('login') }}" method="POST">
 							@csrf
-							<input type="email" placeholder="Email" required/>
-							<input type="password" placeholder="Password" required/>
+							<input type="email" name="email" placeholder="Email" required/>
+							<input type="password" name="password" placeholder="Password" required/>
 							<span>
-								<input type="checkbox" class="checkbox"> 
+								<input type="checkbox" class="checkbox" name="remember"> 
 								Keep me signed in
 							</span>
 							<button type="submit" class="btn btn-default">Login</button>
